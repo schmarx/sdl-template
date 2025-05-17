@@ -9,14 +9,6 @@
 #include "render.h"
 #include "sim.h"
 
-// timer values will only be updated every TIMER_UPDATE_FREQ'th frame
-// this is so that things like FPS counts don't just become a flicker of constantly changing values
-#define TIMER_UPDATE_FREQ 50
-
-#define t_start(index) timers[index].start = SDL_GetPerformanceCounter()
-#define t_end(index) timers[index].end = SDL_GetPerformanceCounter()
-#define t_log(index, counter) timers[index].duration = (((counter) % TIMER_UPDATE_FREQ == 0) ? (1000.0 * (timers[index].end - timers[index].start) / (float)SDL_GetPerformanceFrequency()) : timers[index].duration)
-
 obj *objs = NULL;
 pthread_t *threads;
 param *params;

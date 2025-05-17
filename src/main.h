@@ -4,12 +4,22 @@
 #include <SDL2/SDL.h>
 #include <pthread.h>
 
+#define thread_count 1
+#define PI 3.1415926535897932384626433832795
+
+// ----- timing -----
+// timer values will only be updated every TIMER_UPDATE_FREQ'th frame
+// this is so that things like FPS counts don't just become a flicker of constantly changing values
+#define TIMER_UPDATE_FREQ 50
+
+#define t_start(index) timers[index].start = SDL_GetPerformanceCounter()
+#define t_end(index) timers[index].end = SDL_GetPerformanceCounter()
+#define t_log(index, counter) timers[index].duration = (((counter) % TIMER_UPDATE_FREQ == 0) ? (1000.0 * (timers[index].end - timers[index].start) / (float)SDL_GetPerformanceFrequency()) : timers[index].duration)
+
+// ----- RNG -----
 #define rng(max) rand() % (max + 1)
 #define rngr(min, max) (rng((max - min)) + min)
 #define rngf() ((float)rand() / (float)RAND_MAX)
-
-#define thread_count 1
-#define PI 3.1415926535897932384626433832795
 
 enum TIMERS {
 	UPDATE,
