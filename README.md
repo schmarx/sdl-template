@@ -54,5 +54,8 @@ Basic user inputs are handled, including:
 
 It is very easy to add handlers for additional inputs in `main.c`.
 
+## Vectors
+The file `vec.h` exposes many functions available for working with vectors. This includes functions for both 2D and 3D vectors (`vec2` and `vec3` respectively).
+
 ## Multithreading (not yet implemented)
 The plan is to add multithreading so that the whole process doesn't have to be gone through every time a new project is set up.
