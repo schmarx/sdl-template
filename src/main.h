@@ -45,6 +45,7 @@ typedef struct {
 typedef struct {
 	// global time
 	int time_ms;
+	int step;
 
 	// running states
 	int running;
