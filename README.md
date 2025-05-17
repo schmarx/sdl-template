@@ -2,6 +2,8 @@
 
 A template that contains the initial boilerplate needed for applications reliant on simple 2-dimensional graphics.
 
+This is particularly for computational applications that require visualisation or user input, such as simulations.
+
 This comes with initialisation of the graphics window, and loads a font in as a texture for fast text rendering (the font used is loaded in the render.c initialisation function, and can easily be changed here).
 
 It also includes basic square and circle textures, but custom textures can be included through image files with SDL.
